@@ -30,7 +30,10 @@ const AppBar = (props) => (
             </Box>
           <Heading level='3' margin='none' pad={{ top: 'small'}}>Countries</Heading>
         </Box>
-        <Button primary label="mode" onClick={() => {}} />
+        <Button 
+        primary 
+        label="mode" />
+        {/* onClick={() => setDarkMode(!darkMode)} /> */}
     </Box>
   );
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Grommet } from 'grommet';
 import AppBar from './components/AppBar/AppBar';
 import CountriesListView from './views/CountriesListView/CountriesListView';
@@ -18,9 +18,14 @@ const theme = {
 };
 
 function App() {
+  // const [darkMode, setDarkMode] = useState(false);
   return (
-    <Grommet theme={ theme } themeMode="dark">
+    <Grommet 
+    full 
+    theme={ theme }> 
+    {/* themeMode={darkMode ? "dark" : "light"} > */}
       <AppBar />
+      <CountriesListView />
       
     </Grommet>
   );
