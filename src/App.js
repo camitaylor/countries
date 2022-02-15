@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grommet } from 'grommet';
 import AppBar from './components/AppBar/AppBar';
+import CountriesListView from './views/CountriesListView/CountriesListView';
 
 
 const theme = {
