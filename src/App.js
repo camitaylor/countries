@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import { Grommet } from 'grommet';
-import AppBar from './components/AppBar/AppBar';
-import CountriesListView from './views/CountriesListView/CountriesListView';
+import { Grommet, Main } from 'grommet';
+import Router from './router/Router';
+import AppBar from './components/AppBar/AppBar'
 
 
 const theme = {
   global: {
     colors: {
-      brand: '#228BE6',
+      brand: '#7D4CDB',
          },
     font: {
       family: 'Roboto',
@@ -24,8 +24,10 @@ function App() {
     full 
     theme={ theme }> 
     {/* themeMode={darkMode ? "dark" : "light"} > */}
-      <AppBar />
-      <CountriesListView />
+      <Main>
+        <AppBar />
+        <Router />
+      </Main>
       
     </Grommet>
   );
