@@ -1,0 +1,116 @@
+const countriesDetailsData = [
+  {
+    "id": 1,
+    "name": "United States",
+    "nativeName": "",
+    "region": "Northeast, Southwest, West, Southeast, Midwest",
+    "subregion": "12",
+    "population": "A LOT",
+    "capital": "Washington DC",
+    "topLevelDomain": ".us",
+    "currencies": "USD",
+    "languages": "English",
+    "borderCountry1": "Canada", 
+    "borderCountry2": "Mexico"
+  },
+  {
+    "id": 2,
+    "name": "Canada",
+    "nativeName": "",
+    "region": "Atlantic Provinces, Central Canada, Prairie Provinces, West Coast, Northern Territories",
+    "subregion": "",
+    "population": " Not as much",
+    "capital": "Ottawa",
+    "topLevelDomain": ".ca",
+    "currencies": "Canadian Dollar",
+    "languages": "English, French",
+    "borderCountry1": "United States"
+  },
+  {
+    "id": 3,
+    "name": "Brazil",
+    "nativeName": "",
+    "region": "South America",
+    "subregion": "",
+    "population": "Plenty",
+    "capital": "Brasilia",
+    "topLevelDomain": ".br",
+    "currencies": "Brazilian real",
+    "languages": "Portugese",
+    "borderCountry1": "Argentina", 
+    "borderCountry2": "Peru "
+  },
+  {
+    "id": 4,
+    "name": "Spain",
+    "nativeName": "",
+    "region": "Europe",
+    "subregion": "",
+    "population": "Just enough",
+    "capital": "Madrid",
+    "topLevelDomain": ".es",
+    "currencies": "Euros",
+    "languages": "Spanish",
+    "borderCountry1": "Portugal",
+    "borderCountry2": "France"
+  },
+  {
+    "id": 5,
+    "name": "Hungary",
+    "nativeName": "",
+    "region": "Europe",
+    "subregion": "",
+    "population": "Some",
+    "capital": "Budapest",
+    "topLevelDomain": ".hu",
+    "currencies": "Hungarian forint",
+    "languages": "Hungarian",
+    "borderCountry1": "Austria", 
+    "borderCountry2": "Serbia"
+  },
+  {
+    "id": 6,
+    "name": "Japan",
+    "nativeName": "",
+    "region": "Asia",
+    "subregion": "",
+    "population": "A TON",
+    "capital": "Tokyo",
+    "topLevelDomain": ".jp",
+    "currencies": "Yen",
+    "languages": "Japanese",
+    "borderCountry1": "Korea",
+    "borderCountry2": "Russia"
+  },
+  {
+    "id": 7,
+    "name": "Kenya",
+    "nativeName": "",
+    "region": "Africa",
+    "subregion": "",
+    "population": "Many",
+    "capital": "Nairobi",
+    "topLevelDomain": ".ke",
+    "currencies": "Shilling",
+    "languages": "Swahili",
+    "borderCountry1": "Ethiopia",
+    "borderCountry2": "Tanzania"
+  },
+  {
+    "id": 8,
+    "name": "England",
+    "nativeName": "",
+    "region": "Europe",
+    "subregion": "",
+    "population": "Lots",
+    "capital": "London",
+    "topLevelDomain": ".uk",
+    "currencies": "Pound",
+    "languages": "English",
+    "borderCountry1": "Scotland",
+    "borderCountry2": "Ireland"
+  }
+
+]
+
+export default countriesDetailsData;
