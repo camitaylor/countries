@@ -8,55 +8,55 @@ import {
   ResponsiveContext, 
   Text 
 } from 'grommet';
-import useFetch from '../../hooks/useFetch/useFetch';
-  // import countriesDetailsData from '../CountriesDetails/countriesDetailsData';
+// import useFetch from '../../hooks/useFetch/useFetch';
 
-const CountriesDetailsCard = () => {
+
+const CountriesDetailsCard = ({name, nativeName, region, subregion, population, capital, topLevelDomain, currencies, languages, borders }) => {
   //  const size = useContext(ResponsiveContext);
 
-    const [name, setName] = useState('');
-    const [region, setRegion] = useState('');
-    const [population, setPopulation] = useState('');
-    const [capital, setCapital] = useState('');
-    const [nativeName, setNativeName] = useState('');
-    const [subregion, setSubregion] = useState('');
-    const [topLevelDomain, setTopLevelDomain] = useState('');
-    const [currencies, setCurrencies] = useState([]);
-    const [languages, setLanguages] = useState([]);
-    const [borders, setBorders] = useState([]);
-    // const [flag, setFlag] = useState('');
+  //   const [name, setName] = useState('');
+  //   const [region, setRegion] = useState('');
+  //   const [population, setPopulation] = useState('');
+  //   const [capital, setCapital] = useState('');
+  //   const [nativeName, setNativeName] = useState('');
+  //   const [subregion, setSubregion] = useState('');
+  //   const [topLevelDomain, setTopLevelDomain] = useState('');
+  //   const [currencies, setCurrencies] = useState([]);
+  //   const [languages, setLanguages] = useState([]);
+  //   const [borders, setBorders] = useState([]);
+  //   // const [flag, setFlag] = useState('');
 
-  const res = useFetch('https://restcountries.com/v2/all')
-  // const res = useFetch(`https://restcountries.com/v2/all?country=${searchValue}`)
+  // const res = useFetch('https://restcountries.com/v2/all')
+  // // const res = useFetch(`https://restcountries.com/v2/all?country=${searchValue}`)
   
     
-  const countriesListData = res.response
+  // const countriesListData = res.response
     
-    useEffect(() => {
-      if(countriesListData) {
+  //   useEffect(() => {
+  //     if(countriesListData) {
       
-      setName(countriesListData[22].name)
-      setNativeName(countriesListData[22].nativeName)
-      setRegion(countriesListData[22].region)
-      setPopulation(countriesListData[22].population)
-      setCapital(countriesListData[22].capital)
-      setSubregion(countriesListData[22].subregion)
-      setTopLevelDomain(countriesListData[22].topLevelDomain)
-      setCurrencies(countriesListData[22].currencies[0].name)
-      setLanguages(countriesListData[22].languages[0].name)
-      setBorders(countriesListData[22].borders)
-      // setFlag(countriesListData[1].flag)
+  //     setName(countriesListData[22].name)
+  //     setNativeName(countriesListData[22].nativeName)
+  //     setRegion(countriesListData[22].region)
+  //     setPopulation(countriesListData[22].population)
+  //     setCapital(countriesListData[22].capital)
+  //     setSubregion(countriesListData[22].subregion)
+  //     setTopLevelDomain(countriesListData[22].topLevelDomain)
+  //     setCurrencies(countriesListData[22].currencies[0].name)
+  //     setLanguages(countriesListData[22].languages[0].name)
+  //     setBorders(countriesListData[22].borders)
+  //     // setFlag(countriesListData[1].flag)
     
-      }
-    }, [countriesListData]);
+  //     }
+  //   }, [countriesListData]);
 
-    console.log(countriesListData)
+  //   console.log(countriesListData)
 
-    // if (!res.response) {
-    //   console.log(searchValue)
+  //   // if (!res.response) {
+  //   //   console.log(searchValue)
       
-    //   return <div>Loading...</div> 
-    // }
+  //   //   return <div>Loading...</div> 
+  //   // }
 
     return ( 
       <Card
@@ -110,7 +110,7 @@ const CountriesDetailsCard = () => {
         </Box>
       </Card>
     )
-}
+};
   
 
-export default CountriesDetailsCard
+export default CountriesDetailsCard;

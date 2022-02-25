@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Card, Image } from 'grommet';
-import useFetch from '../../hooks/useFetch/useFetch';
 
-const FlagCard = () => {
 
-  const [flag, setFlag] = useState('');
-
-  const res = useFetch('https://restcountries.com/v2/all')
-
-  const countriesListData = res.response
-    
-    useEffect(() => {
-      if(countriesListData) {
-      setFlag(countriesListData[16].flag)  
-      }
-    }, [countriesListData]);
-
-  return (
+const DetailsFlagCard = ({ flag }) => (
     <Card 
       height="500px" 
       width="500px"
@@ -27,7 +13,6 @@ const FlagCard = () => {
         src={flag}
       />
     </Card> 
-  )
-};
+);
 
-export default FlagCard;
+export default DetailsFlagCard;
