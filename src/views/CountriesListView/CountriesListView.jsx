@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, Grommet, Select, TextInput } from 'grommet';
+import React, { useContext, useEffect, useState } from 'react';
+import { Box, Button, Grid, Grommet, ResponsiveContext, Select, TextInput } from 'grommet';
 import CountriesListCard from '../../components/CountriesListCard/CountriesListCard';
 import { deepMerge } from 'grommet/utils';
 import { grommet } from 'grommet/themes';
 import { Search } from 'grommet-icons';
 import useFetch from '../../hooks/useFetch/useFetch';
-// import { countriesListData } from '../../components/CountriesListCard/CountriesListCard';
 
 const customBreakpoints = deepMerge(grommet, {
   global: {
@@ -24,7 +23,10 @@ const customBreakpoints = deepMerge(grommet, {
 });
 
 
-const CountriesListView = (id) => {
+const CountriesListView = () => {
+
+  const size = useContext(ResponsiveContext);
+
   const [name, setName] = useState('');
   const [region, setRegion] = useState('');
   const [population, setPopulation] = useState('');
@@ -35,24 +37,24 @@ const CountriesListView = (id) => {
   // const res = useFetch(`https://restcountries.com/v2/all?country=${searchValue}`)
   
     
-  const countriesListData = res.response
+  const countriesData = res.response
     
     useEffect(() => {
       
-      if(countriesListData) {
+      if(countriesData) {
       
-      setName(countriesListData.name)
-      setRegion(countriesListData.region)
-      setPopulation(countriesListData.population)
-      setCapital(countriesListData.capital)
-      setFlag(countriesListData.flag)
+      setName(countriesData.name)
+      setRegion(countriesData.region)
+      setPopulation(countriesData.population)
+      setCapital(countriesData.capital)
+      setFlag(countriesData.flag)
     
       }
-    }, [countriesListData]);
+    }, [countriesData]);
 
-    console.log(countriesListData)
+    console.log(countriesData)
 
-    // if (!countriesListData) {
+    // if (!countriesData) {
     //   console.log(searchValue)
       
     //   return <div>Loading...</div> 
@@ -96,9 +98,15 @@ const CountriesListView = (id) => {
           </Box>
         </Box>
         <Box
-          margin="small"
-        >
+        pad="large"
+        margin={{ left: "large" }}
+      >
+
+        <Grid columns={size !== 'small' ? 'small' : '100%'} gap="xlarge">
+        {countriesData.map(({ flag, name, region, population, capital }) => (
           <CountriesListCard flag={flag} name={name} region={region} population={population} capital={capital} />
+        ))}
+        </Grid>
       </Box>
     </Grommet>
   );
