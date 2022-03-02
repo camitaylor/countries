@@ -1,77 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Box, Button, Grid, Grommet, ResponsiveContext, Select, TextInput } from 'grommet';
+import React, { useContext } from 'react';
+import { Box, Button, Grid, Header, ResponsiveContext, Select, TextInput } from 'grommet';
 import CountriesListCard from '../../components/CountriesListCard/CountriesListCard';
-import { deepMerge } from 'grommet/utils';
-import { grommet } from 'grommet/themes';
 import { Search } from 'grommet-icons';
-import useFetch from '../../hooks/useFetch/useFetch';
 
-const customBreakpoints = deepMerge(grommet, {
-  global: {
-    breakpoints: {
-      small: {
-        value: 600,
-      },
-      medium: {
-        value: 900,
-      },
-      large: {
-        value: 3000,
-      },
-    },
-  },
-});
-
-
-const CountriesListView = () => {
+const CountriesListView = ({ countriesData }) => {
 
   const size = useContext(ResponsiveContext);
 
-  const [name, setName] = useState('');
-  const [region, setRegion] = useState('');
-  const [population, setPopulation] = useState('');
-  const [capital, setCapital] = useState('');
-  const [flag, setFlag] = useState('');
-
-  const res = useFetch('https://restcountries.com/v2/all')
-  // const res = useFetch(`https://restcountries.com/v2/all?country=${searchValue}`)
-  
-    
-  const countriesData = res.response
-    
-    useEffect(() => {
-      
-      if(countriesData) {
-      
-      setName(countriesData.name)
-      setRegion(countriesData.region)
-      setPopulation(countriesData.population)
-      setCapital(countriesData.capital)
-      setFlag(countriesData.flag)
-    
-      }
-    }, [countriesData]);
-
-    console.log(countriesData)
-
-    // if (!countriesData) {
-    //   console.log(searchValue)
-      
-    //   return <div>Loading...</div> 
-    // }
-
   return (
-    <Grommet theme={customBreakpoints}>
-      <Box
-        background= "white"
-        direction='row-responsive'
-        justify='between'
-      >
+    <Box>
+      <Header>
         <Box
-          margin={{ top: "large", left: "xlarge" }}
+          margin={{ top: "large", right: "xlarge", left: "xlarge" }}  
           align="start"
           direction="row-responsive"
-          gap="xsmall"
+          gap="small"
         >
           <TextInput 
             icon={<Search />} 
@@ -96,19 +39,21 @@ const CountriesListView = () => {
               // onChange={({ option }) => setValue(option)}
             />
           </Box>
-        </Box>
+        </Header>
         <Box
         pad="large"
-        margin={{ left: "large" }}
+        margin={{ left: "medium" }}
       >
 
         <Grid columns={size !== 'small' ? 'small' : '100%'} gap="xlarge">
-        {countriesData.map(({ flag, name, region, population, capital }) => (
-          <CountriesListCard flag={flag} name={name} region={region} population={population} capital={capital} />
+        {countriesData.map(( countriesData ) => ( 
+          <CountriesListCard 
+          countriesData={countriesData}
+          />
         ))}
         </Grid>
       </Box>
-    </Grommet>
+    </Box>
   );
 };
 

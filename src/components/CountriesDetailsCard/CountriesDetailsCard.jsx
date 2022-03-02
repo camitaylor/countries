@@ -1,95 +1,47 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
 import { 
   Box,
   Button, 
   Card, 
-  Grid, 
-  Image, 
-  ResponsiveContext, 
   Text 
 } from 'grommet';
-// import useFetch from '../../hooks/useFetch/useFetch';
 
 
-const CountriesDetailsCard = ({name, nativeName, region, subregion, population, capital, topLevelDomain, currencies, languages, borders }) => {
-  //  const size = useContext(ResponsiveContext);
-
-  //   const [name, setName] = useState('');
-  //   const [region, setRegion] = useState('');
-  //   const [population, setPopulation] = useState('');
-  //   const [capital, setCapital] = useState('');
-  //   const [nativeName, setNativeName] = useState('');
-  //   const [subregion, setSubregion] = useState('');
-  //   const [topLevelDomain, setTopLevelDomain] = useState('');
-  //   const [currencies, setCurrencies] = useState([]);
-  //   const [languages, setLanguages] = useState([]);
-  //   const [borders, setBorders] = useState([]);
-  //   // const [flag, setFlag] = useState('');
-
-  // const res = useFetch('https://restcountries.com/v2/all')
-  // // const res = useFetch(`https://restcountries.com/v2/all?country=${searchValue}`)
-  
-    
-  // const countriesListData = res.response
-    
-  //   useEffect(() => {
-  //     if(countriesListData) {
-      
-  //     setName(countriesListData[22].name)
-  //     setNativeName(countriesListData[22].nativeName)
-  //     setRegion(countriesListData[22].region)
-  //     setPopulation(countriesListData[22].population)
-  //     setCapital(countriesListData[22].capital)
-  //     setSubregion(countriesListData[22].subregion)
-  //     setTopLevelDomain(countriesListData[22].topLevelDomain)
-  //     setCurrencies(countriesListData[22].currencies[0].name)
-  //     setLanguages(countriesListData[22].languages[0].name)
-  //     setBorders(countriesListData[22].borders)
-  //     // setFlag(countriesListData[1].flag)
-    
-  //     }
-  //   }, [countriesListData]);
-
-  //   console.log(countriesListData)
-
-  //   // if (!res.response) {
-  //   //   console.log(searchValue)
-      
-  //   //   return <div>Loading...</div> 
-  //   // }
+const CountriesDetailsCard = ({ countriesData }) => {
 
     return ( 
       <Card
-        height="500px" 
-        width="500px"
+        height="450px" 
+        width="600px"
         elevation="large"
+        key={countriesData[5].name}
       >
         <Box 
           pad={{ top: "large", left: "xsmall" }}
           margin={{ left: "medium"}}
         >
-          <Text size='xlarge' weight='bold'>{name}</Text>
+          <Text size='xlarge' weight='bold'>{countriesData[5].name}</Text>
         </Box>
         <Box
           direction="row-responsive"
         >
           <Box 
             pad={{ top: "large", left: "xsmall" }}
-            margin={{ left: "small"}}
+            margin={{ left: "medium"}}
           >
-            <Text size="large" weight='bold'>Native Name: {nativeName}</Text>
-            <Text size="large" weight='bold'>Region: {region}</Text>
-            <Text size="large" weight='bold'>Subregion: {subregion}</Text>
-            <Text size="large" weight='bold'>Population: {population}</Text>
-            <Text size="large" weight='bold'>Capital: {capital}</Text>
+            <Text size="large" weight='bold'>Native Name: {countriesData[5].nativeName}</Text>
+            <Text size="large" weight='bold'>Region: {countriesData[5].region}</Text>
+            <Text size="large" weight='bold'>Subregion: {countriesData[5].subregion}</Text>
+            <Text size="large" weight='bold'>Population: {countriesData[5].population}</Text>
+            <Text size="large" weight='bold'>Capital: {countriesData[5].capital}</Text>
           </Box>
           <Box
             pad={{ top: "large", right: 'large' }}
-            // margin={{ left: "xsmall"}}
+            margin={{ left: "medium"}}
           >
-            <Text size="large" weight='bold'>Top Level Domain: {topLevelDomain}</Text>
-            <Text size="large" weight='bold'>Currencies: {currencies}</Text>
-            <Text size="large" weight='bold'>Languages: {languages}</Text>
+            <Text size="large" weight='bold'>Top Level Domain: {countriesData[5].topLevelDomain[0]}</Text>
+            <Text size="large" weight='bold'>Currencies: {countriesData[5].currencies[0].name}</Text>
+            <Text size="large" weight='bold'>Languages: {countriesData[5].languages[0].name}</Text>
           </Box>
         </Box>
         <Box  
@@ -101,11 +53,11 @@ const CountriesDetailsCard = ({name, nativeName, region, subregion, population, 
           <Text size="large" weight='bold'>Border Countries: </Text>
           <Button 
             primary 
-            label={borders} 
+            label={countriesData[5].borders[0]} 
           />
           <Button 
             primary 
-            label={borders} 
+            label={countriesData[5].borders[1]} 
           />
         </Box>
       </Card>

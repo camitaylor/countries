@@ -7,19 +7,23 @@ import {
   Image, 
   Text } from 'grommet';
 
-const CountriesListCard =  ({ flag, name, region, population, capital }) => (
+const CountriesListCard =  ({ countriesData }) => {
+
+
+  return (
       <Box>
           <Card 
-            // key={id}
+            key={countriesData.name}
             elevation="medium"
-            height="small" 
-            width="small" 
-            background="light-1">
+            height="225px" 
+            width="300px" 
+            background="light-1"
+          >
             <CardHeader>
-              <Box height="xsmall" width="medium">
+              <Box height="125px" width="medium">
                 <Image
                   fit="cover"
-                  src={flag}
+                  src={countriesData.flag}
                 />
               </Box>
             </CardHeader>
@@ -28,19 +32,20 @@ const CountriesListCard =  ({ flag, name, region, population, capital }) => (
                 margin={{ left: "small" }}
                 pad={{ bottom: 'xsmall'}}
               >
-                <Text size='small' weight='bold'>{name}</Text>
+                <Text size='small' weight='bold'>{countriesData.name}</Text>
               </Box>
               <Box
                 margin={{ left: "small" }}
                 pad={{ bottom: 'xsmall'}}
                 >
-                <Text size='xsmall'>Region: {region}</Text>
-                <Text size='xsmall'>Population: {population}</Text>
-                <Text size='xsmall'>Capital: {capital}</Text>
+                <Text size='xsmall'>Region: {countriesData.region}</Text>
+                <Text size='xsmall'>Population: {countriesData.population}</Text>
+                <Text size='xsmall'>Capital: {countriesData.capital}</Text>
               </Box>
             </CardBody>
           </Card>
         </Box>
-);
+  );
+};
 
 export default CountriesListCard;

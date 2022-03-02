@@ -2,15 +2,15 @@ import React from 'react';
 import { Card, Image } from 'grommet';
 
 
-const DetailsFlagCard = ({ flag }) => (
+const DetailsFlagCard = ({ countriesData }) => (
     <Card 
-      height="500px" 
-      width="500px"
+      height="450px" 
+      width="600px"
       elevation="large" 
     >
       <Image
         fit="cover"
-        src={flag}
+        src={countriesData[5].flag}
       />
     </Card> 
 );
