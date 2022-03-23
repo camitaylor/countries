@@ -1,32 +1,20 @@
-import React, { useContext } from 'react';
-import { Box, Button, Grid, Header, ResponsiveContext, Select, TextInput } from 'grommet';
+import React, { useContext, useState } from 'react';
+import { Box, Grid, Header, ResponsiveContext, Select } from 'grommet';
 import CountriesListCard from '../../components/CountriesListCard/CountriesListCard';
-import { Search } from 'grommet-icons';
+import SearchField from '../../components/SearchField/SearchField';
 
 const CountriesListView = ({ countriesData }) => {
 
+  const [searchValue, setSearchValue] = useState('');
   const size = useContext(ResponsiveContext);
 
   return (
     <Box>
       <Header>
-        <Box
-          margin={{ top: "large", right: "xlarge", left: "xlarge" }}  
-          align="start"
-          direction="row-responsive"
-          gap="small"
-        >
-          <TextInput 
-            icon={<Search />} 
-            placeholder="Search for a country..."
-            // value={value}
-            // onChange={event => setValue(event.target.value)}
+          <SearchField 
+            searchValue={searchValue} 
+            setSearchValue={setSearchValue}
           />
-          <Button
-            margin={{ top: "xsmall"}}
-            size="small"
-            primary label="search" />
-          </Box>
           <Box
             margin={{ top: "large", right: "xlarge" }}  
             align="end"
