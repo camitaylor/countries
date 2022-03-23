@@ -6,18 +6,33 @@ import {
   CardBody, 
   Image, 
   Text } from 'grommet';
+  import { useHistory } from 'react-router-dom';
 
 const CountriesListCard =  ({ countriesData }) => {
 
+  const history = useHistory();
+  
+  const handleClick = () => {
+    history.push({
+      pathname: '/details',
+      state: countriesData
+    });
+  };
 
   return (
       <Box>
           <Card 
             key={countriesData.name}
-            elevation="medium"
             height="225px" 
             width="300px" 
             background="light-1"
+            hoverIndicator={{
+              background: {
+               color: 'background-contrast',
+              },
+              elevation: 'large',
+            }}
+            onClick={ handleClick }
           >
             <CardHeader>
               <Box height="125px" width="medium">
@@ -47,5 +62,10 @@ const CountriesListCard =  ({ countriesData }) => {
         </Box>
   );
 };
+
+// Clickable.parameters = {
+//   chromatic: { disable: true },
+// };
+
 
 export default CountriesListCard;
