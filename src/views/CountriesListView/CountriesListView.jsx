@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Box, Grid, Header, ResponsiveContext, Select } from 'grommet';
+import { Box, Grid, Header, ResponsiveContext } from 'grommet';
 import CountriesListCard from '../../components/CountriesListCard/CountriesListCard';
 import SearchField from '../../components/SearchField/SearchField';
+import FilterField from '../../components/FilterField/FilterField';
 
 const CountriesListView = ({ countriesData }) => {
 
@@ -15,18 +16,7 @@ const CountriesListView = ({ countriesData }) => {
             searchValue={searchValue} 
             setSearchValue={setSearchValue}
           />
-          <Box
-            margin={{ top: "large", right: "xlarge" }}  
-            align="end"
-            direction="row-responsive"
-          >
-            <Select
-              options={[ 'Africa', 'Antarctica', 'Asia', 'Australia', 'Europe', 'North America', 'South America' ]}
-              placeholder="Select a region"
-              // value={value}
-              // onChange={({ option }) => setValue(option)}
-            />
-          </Box>
+          <FilterField />
         </Header>
         <Box
         pad="large"
