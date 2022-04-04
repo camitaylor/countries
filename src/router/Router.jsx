@@ -3,15 +3,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CountriesListView from '../views/CountriesListView/CountriesListView';
 import CountriesDetailsView from '../views/CountriesDetailsView/CountriesDetailsView';
 
-const Router = ({ countriesData }) => {
+const Router = ({ countriesData, searchInput, setSearchInput }) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact >
-          <CountriesListView countriesData={countriesData} />
+          <CountriesListView searchInput={searchInput} setSearchInput={setSearchInput} />
         </Route>
         <Route path="/details" >
-          <CountriesDetailsView countriesData={countriesData} />
+          <CountriesDetailsView />
         </Route>
       </Switch>
   </BrowserRouter>

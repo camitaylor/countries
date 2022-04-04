@@ -1,12 +1,24 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom';
 import { Box } from 'grommet';
 import CountriesDetailsCard from '../../components/CountriesDetailsCard/CountriesDetailsCard';
 import DetailsFlagCard from '../../components/DetailsFlagCard/DetailsFlagCard';
+import useFetch from '../../hooks/useFetch/useFetch';
 
 
+const CountriesDetailsView = () => {
 
-const CountriesDetailsView = ({countriesData}) => {
-console.log(countriesData)
+let location = useLocation();
+
+const paramsString = location.search;
+let searchParams = new URLSearchParams(paramsString);
+const country = searchParams.get('country');
+
+const { data: countryData, isLoading } = useFetch(`https:restcountries.com/v3.1/name/${country}`)
+
+if (isLoading) {
+  return <Box>Loading...</Box> 
+}
 
   return (
     <Box 
@@ -21,13 +33,16 @@ console.log(countriesData)
         justify="center"
         align="center"
       >
-        <DetailsFlagCard countriesData={countriesData} /> 
+        <DetailsFlagCard 
+        countryData={countryData} />
       </Box>
       <Box 
         justify="center"
         align="center" 
       >
-        <CountriesDetailsCard countriesData={countriesData} />
+        <CountriesDetailsCard 
+        countryData={countryData} 
+        />
       </Box>
     </Box>
   );

@@ -3,20 +3,28 @@ import { Box, Grid, Header, ResponsiveContext } from 'grommet';
 import CountriesListCard from '../../components/CountriesListCard/CountriesListCard';
 import SearchField from '../../components/SearchField/SearchField';
 import FilterField from '../../components/FilterField/FilterField';
+import useFetch from '../../hooks/useFetch/useFetch';
 
-const CountriesListView = ({ countriesData }) => {
+const CountriesListView = () => {
 
-  const [searchValue, setSearchValue] = useState('');
   const size = useContext(ResponsiveContext);
+
+  const { data: countriesData, isLoading } = useFetch('https://restcountries.com/v2/all')
+
+
+  // const { data, isLoading } = useFetch(`https://restcountries.com/v2/all?country=${searchInput}`)
+
+  if (isLoading) {
+    return <Box>Loading...</Box> 
+  }
 
   return (
     <Box>
       <Header>
           <SearchField 
-            searchValue={searchValue} 
-            setSearchValue={setSearchValue}
+          // setSearchTerm={setSearchTerm} 
           />
-          <FilterField />
+          <FilterField countriesData={countriesData}/>
         </Header>
         <Box
         pad="large"
@@ -24,15 +32,12 @@ const CountriesListView = ({ countriesData }) => {
       >
 
         <Grid columns={size !== 'small' ? 'small' : '100%'} gap="xlarge">
-        {countriesData.map(( countriesData ) => ( 
-          <CountriesListCard 
-          countriesData={countriesData}
-          />
-        ))}
+          {/* {display} */}
         </Grid>
       </Box>
     </Box>
   );
 };
+
 
 export default CountriesListView;

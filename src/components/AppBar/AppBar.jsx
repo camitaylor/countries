@@ -1,9 +1,7 @@
 import React from 'react';
 import { Box, Button, Heading, Image } from 'grommet';
 
-const AppBar = ({darkMode, setDarkMode}) => {
-  
-  return (
+const AppBar = ({darkMode, setDarkMode}) => (
     <Box
       tag='header'
       direction='row'
@@ -44,7 +42,6 @@ const AppBar = ({darkMode, setDarkMode}) => {
           onClick={() => setDarkMode(!darkMode)}
         />
     </Box>
-  );
-};
+);
 
 export default AppBar;

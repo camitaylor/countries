@@ -2,17 +2,21 @@ import React from 'react';
 import { Card, Image } from 'grommet';
 
 
-const DetailsFlagCard = ({ countriesData }) => (
+const DetailsFlagCard = ({ countryData }) => {
+  const {flags} = countryData[0];
+
+  return (
     <Card 
       height="450px" 
-      width="600px"
+      width="675px"
       elevation="large" 
     >
       <Image
         fit="cover"
-        src={countriesData[5].flag}
+        src={flags.svg}
       />
     </Card> 
-);
+  );
+};
 
 export default DetailsFlagCard;
