@@ -1,7 +1,16 @@
 import React from 'react';
 import { Box, Select } from 'grommet';
 
-const FilterField = () => {
+const FilterField = ({optionValue, setOptionValue, filteredRegions}) => {
+
+  const handleRegionFilterChange = (e) => {
+    setOptionValue(e.target.value);    
+  }
+
+  const regionOptions = filteredRegions.map((region) => (
+      region
+    ))
+
   return (
     <Box
       margin={{ top: "large", right: "xlarge" }}  
@@ -9,13 +18,13 @@ const FilterField = () => {
       direction="row-responsive"
     >
       <Select
-        options={[ 'Africa', 'Antarctica', 'Asia', 'Australia', 'Europe', 'North America', 'South America' ]}
+        options={regionOptions}
         placeholder="Select a region"
-        // value={value}
-         // onChange={({ option }) => setValue(option)}
+        value={optionValue}
+        onChange={handleRegionFilterChange}
       />
     </Box>
   )
-}
+};
 
 export default FilterField;
