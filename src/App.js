@@ -20,6 +20,6 @@ const App = () => {
       
     </Grommet>
   );
-}
+};
 
 export default App;

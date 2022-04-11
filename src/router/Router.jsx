@@ -3,8 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import CountriesListView from '../views/CountriesListView/CountriesListView';
 import CountriesDetailsView from '../views/CountriesDetailsView/CountriesDetailsView';
 
-const Router = ({ countriesData, searchInput, setSearchInput }) => {
-  return (
+const Router = ({ countriesData, searchInput, setSearchInput }) => (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact >
@@ -15,7 +14,6 @@ const Router = ({ countriesData, searchInput, setSearchInput }) => {
         </Route>
       </Switch>
   </BrowserRouter>
-  )
-}
+);
 
 export default Router;

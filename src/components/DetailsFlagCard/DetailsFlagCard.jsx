@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, Image } from 'grommet';
 
-
 const DetailsFlagCard = ({ countryData }) => {
   const {flags} = countryData[0];
 

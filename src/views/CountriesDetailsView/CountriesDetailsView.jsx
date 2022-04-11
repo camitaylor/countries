@@ -8,17 +8,17 @@ import useFetch from '../../hooks/useFetch/useFetch';
 
 const CountriesDetailsView = () => {
 
-let location = useLocation();
+  const location = useLocation();
 
-const paramsString = location.search;
-let searchParams = new URLSearchParams(paramsString);
-const country = searchParams.get('country');
+  const paramsString = location.search;
+  const searchParams = new URLSearchParams(paramsString);
+  const country = searchParams.get('country');
 
-const { data: countryData, isLoading } = useFetch(`https:restcountries.com/v3.1/name/${country}`)
+  const { data: countryData, isLoading } = useFetch(`https:restcountries.com/v3.1/name/${country}`)
 
-if (isLoading) {
-  return <Box>Loading...</Box> 
-}
+  if (isLoading) {
+    return <Box>Loading...</Box> 
+  }
 
   return (
     <Box 
@@ -46,6 +46,6 @@ if (isLoading) {
       </Box>
     </Box>
   );
-}
+};
 
 export default CountriesDetailsView;
