@@ -1,28 +1,25 @@
-import React from 'react';
-import { Grommet } from 'grommet';
-import AppBar from './components/AppBar/AppBar';
+import React, {useState} from 'react';
+import { Grommet, Main } from 'grommet';
+import { grommet } from 'grommet/themes';
+import Router from './router/Router';
+import AppBar from './components/AppBar/AppBar'
 
-
-const theme = {
-  global: {
-    colors: {
-      brand: '#228BE6',
-         },
-    font: {
-      family: 'Roboto',
-      size: '18px',
-      height: '20px'
-    },
-  },
-};
-
-function App() {
+const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  
   return (
-    <Grommet theme={ theme } themeMode="dark">
-      <AppBar />
+    <Grommet 
+      full 
+      theme={grommet}
+      themeMode={darkMode ? "dark" : "light"}
+    >
+    <AppBar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Main >
+        <Router />
+      </Main>
       
     </Grommet>
   );
-}
+};
 
 export default App;
