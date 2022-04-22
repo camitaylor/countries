@@ -12,9 +12,18 @@ const CountriesDetailsView = () => {
 
   const paramsString = location.search;
   const searchParams = new URLSearchParams(paramsString);
-  const country = searchParams.get('country');
+  const country = searchParams.get('country')
+  const border = searchParams.get('border');
 
-  const { data: countryData, isLoading } = useFetch(`https:restcountries.com/v3.1/name/${country}`)
+  const getFetchUrl = () => {
+    const baseURL = "https:restcountries.com/v3.1/"
+    if(country){
+      return `${baseURL}name/${country}`
+    }
+    return `${baseURL}alpha/${border}`
+  }
+  
+  const { data: countryData, isLoading } = useFetch(getFetchUrl());
 
   if (isLoading) {
     return <Box>Loading...</Box> 
