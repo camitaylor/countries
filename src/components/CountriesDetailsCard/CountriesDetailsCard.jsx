@@ -13,7 +13,7 @@ const CountriesDetailsCard = ({countryData}) => {
 
   const currency = Object.values(currencies)[0].name;
   const language = Object.values(languages)[0];
-
+  
   return (    
     <Card
       height="450px" 
@@ -57,7 +57,7 @@ const CountriesDetailsCard = ({countryData}) => {
       >
         <Text size="large" weight='bold'>Border Countries: </Text>
           {borders ? (borders.map(( border ) => (
-            <Link to={`/details?country=${border}`}>
+            <Link to={`/details?border=${border}`}>
               <Button 
                 key={border}
                 label={border}
